@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
-
-function App() {
-  return (
+import Header from './components/Header';
+import Loading from './components/Loading';
+import PokemonList from './components/PokemonList';
+import { fetchPokemon } from './utils/api-utils';
+export default class App extends Component {
+  state = {
+    pokemonData: [],
+    loading: false
+  }
+  async componentDidMount() {
+    this.setState({ loading: true })
+    const pokemonData = await fetchPokemon()
+    
+    this.setState({
+      pokemonData,
+      loading: false
+    })
+  }
+  render() {
+    const { loading, pokemonData } = this.state
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      {loading ? <Loading/> : <PokemonList pokemonData={pokemonData}/>}
     </div>
-  );
+    )
+  }
 }
-
-export default App;
