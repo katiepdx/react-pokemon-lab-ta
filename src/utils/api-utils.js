@@ -4,3 +4,11 @@ export const fetchPokemon = async (search, direction) => {
   const pokemonArr = data.results
   return pokemonArr
 }
+
+export const fetchPokemonById = async (pokemonId) => {
+  const res = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex/${pokemonId}`)
+  const data = await res.json()
+  const pokemonObj = data
+
+  return pokemonObj
+}

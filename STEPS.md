@@ -52,3 +52,23 @@
 - PokemonList.jsx - maps and uses PokemonItem.jsx
   - prop: pokemonData to PokemonList && single pokemon to PokemonItem
 - SearchForm.jsx 
+
+---
+## Add list and detail page
+- User can click on a pokemon and go to the pokemon's detail page
+### Set Up
+- install react router dom 
+- create detail page and homepage components
+- create pokemon page component
+- move state into a pokemon page component
+- add router to app and check everything is hooked up correctly
+  - / homepage, /pokemon list page, /pokemon/:pokemonId details page
+
+### Steps
+- create fetchPokemonById function in api-utils
+- for each pokemon item --> add a Link to each pokemon 
+  - on click, route to /pokemon/:pokemonId
+- on detail page, add componentDidMount that checks the URL for the pokemonId and runs a fetch using the pokemon id
+  - this.props.match.params.pokemonId (matches parameter (key) name from route in appjs)
+  - state: loading state & pokemonObj
+  - add conditional rendering - pokemon/loading spinner

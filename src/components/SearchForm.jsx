@@ -6,7 +6,7 @@ export default class SearchForm extends Component {
 
     return (
       <section>
-        <input value={search} onChange={handleSearchChange}></input>
+        <input value={search} onChange={handleSearchChange} placeholder="char..."></input>
         <select onChange={handleFilterChange}>
           <option value={'asc'}>Asc</option>
           <option value={'desc'}>Desc</option>
