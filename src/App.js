@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
-import DetailPage from './components/DetailPage';
-import Pokemon from './Pokemon';
+import Pokemon from './containers/PokemonContainer';
+import DetailsContainer from './containers/DetailsContainer';
 
 import {
   BrowserRouter as Router,
@@ -33,7 +33,7 @@ export default class App extends Component {
             <Route
               path="/pokemon/:pokemonId"
               exact
-              component={DetailPage} 
+              component={DetailsContainer} 
             />
 
             <Route

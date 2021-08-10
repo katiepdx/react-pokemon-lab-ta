@@ -72,3 +72,18 @@
   - this.props.match.params.pokemonId (matches parameter (key) name from route in appjs)
   - state: loading state & pokemonObj
   - add conditional rendering - pokemon/loading spinner
+
+
+---
+## Add Pagination
+- Conditionally render prev and next buttons if there are more than 20 pokemon returned
+### Steps
+- add prev and next buttons
+- add current page and total pages (math ceil (count / perPage) ) to state
+- add button handlers
+  - onClick update the current page state THEN make new fetch (passing new page state value)
+  - update state with new data
+  - repeat for both buttons
+- conditionally render prev/next buttons
+  - add prev button if current page in state is greater than 1
+  - add next button if the current page is less than the total amount of pages
